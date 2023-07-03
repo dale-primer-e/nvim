@@ -1,3 +1,10 @@
+" Area for plugins
+call plug#begin('~/AppData/Local/nvim/plugins')
+
+Plug 'altercation/vim-colors-solarized'
+
+call plug#end()
+
 " inoremap jk <ESC> " remap the jk combo to what escape does
 let mapleader = "'"
 syntax on " highlight syntax
