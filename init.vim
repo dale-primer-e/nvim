@@ -13,3 +13,10 @@ set noswapfile " disable the swapfile
 set hlsearch " highlight all results
 set ignorecase " ignore case in search
 set incsearch " show search results as you type
+
+" Solarized colourscheme settings
+if !exists("g:syntax_on")
+	syntax enable
+endif
+set background=dark
+colorscheme solarized
