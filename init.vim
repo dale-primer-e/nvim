@@ -41,3 +41,13 @@ colorscheme solarized
 " vim-markdown settings
 " let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_folding_level = 6
+
+" Python indentation settings
+au BufNewFile, BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
