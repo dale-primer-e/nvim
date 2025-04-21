@@ -4,9 +4,14 @@ call plug#begin('~/AppData/Local/nvim/plugins')
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
-Plug 'preservim/vim-markdown'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'spolu/dwm.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'pwntester/octo.nvim'
+Plug 'catppuccin/nvim'
 
 call plug#end()
 
@@ -18,29 +23,14 @@ set noswapfile " disable the swapfile
 set hlsearch " highlight all results
 set ignorecase " ignore case in search
 set incsearch " show search results as you type
+set autoindent
 
-" Solarized colourscheme settings
-" if !exists("g:syntax_on")
-	" syntax enable
-" endif
-" set background=dark
-" let g:solarized_termcolors=256
-" colorscheme solarized
+nnoremap <leader>y "*y
+nnoremap <leader>Y "*Y
+nnoremap <leader>p "*p
+nnoremap <leader>P "*P
 
-" Solarized colourscheme settings 
-if !exists("g:syntax_on") 
-	syntax enable 
-endif 
-set background=dark 
-let g:solarized_termcolors=256 
-colorscheme solarized
-
-" Gruvbox colourscheme settings 
-" autocmd vimenter * ++nested colorscheme gruvbox
-
-" vim-markdown settings
-" let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_folding_level = 6
+colorscheme catppuccin-mocha
 
 " Python indentation settings
 au BufNewFile, BufRead *.py
@@ -51,3 +41,7 @@ au BufNewFile, BufRead *.py
     \ set expandtab
     \ set autoindent
     \ set fileformat=unix
+
+lua << EOF
+require"octo".setup{}
+EOF
