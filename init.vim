@@ -30,7 +30,7 @@ nnoremap <leader>Y "*Y
 nnoremap <leader>p "*p
 nnoremap <leader>P "*P
 
-colorscheme catppuccin-mocha
+colorscheme catppuccin-latte
 
 " Python indentation settings
 au BufNewFile, BufRead *.py
