@@ -39,7 +39,8 @@ local plugins = {
     cmd = "Goyo" -- Lazy-load only when the Goyo command is used
   },
   {'vim-airline/vim-airline'},
-  {'vim-airline/vim-airline-themes'}
+  {'vim-airline/vim-airline-themes'},
+  {'tpope/vim-surround'}
 }
 local opts = {}
 
