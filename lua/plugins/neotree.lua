@@ -11,6 +11,6 @@ return {
 		-- fill any relevant options here
 	},
 	config = function()
-		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<cr>", { desc = "Open file tree on the left" })
+		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left toggle<cr>", { desc = "Open/close file tree on the left" })
 	end,
 }
