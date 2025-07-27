@@ -8,9 +8,21 @@ return {
   },
   lazy = false,
   opts = {
-    -- Put options here
+    -- Opts here
   },
   config = function()
+    require("neo-tree").setup({
+      event_handlers = {
+        {
+          event = "file_opened",
+          handler = function(file_path)
+            print("Opened file: " .. file_path)
+            require("neo-tree.command").execute({ action = "close" })
+          end,
+        },
+      },
+    })
+
     vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<cr>", { desc = "Open file tree on the left" })
     vim.keymap.set(
       "n",
