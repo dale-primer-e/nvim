@@ -24,11 +24,5 @@ return {
     })
 
     vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<cr>", { desc = "Open file tree on the left" })
-    vim.keymap.set(
-      "n",
-      "<C-b>",
-      ":Neotree buffers reveal float<cr>",
-      { desc = "Open buffers list in floating window" }
-    )
   end,
 }
