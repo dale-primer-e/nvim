@@ -13,9 +13,11 @@ return {
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.isort,
 				require("none-ls.diagnostics.eslint_d"),
+				null_ls.builtins.diagnostics.vale,
 			},
 		})
 
 		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+		vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostic"})
 	end,
 }
