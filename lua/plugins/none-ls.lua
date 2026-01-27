@@ -1,23 +1,27 @@
 return {
-	"nvimtools/none-ls.nvim",
-	dependencies = {
-		"nvimtools/none-ls-extras.nvim",
-	},
-	config = function()
-		local null_ls = require("null-ls")
+  "nvimtools/none-ls.nvim",
+  dependencies = {
+    "nvimtools/none-ls-extras.nvim",
+  },
+  config = function()
+    local null_ls = require("null-ls")
 
-		null_ls.setup({
-			sources = {
-				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.prettier,
-				null_ls.builtins.formatting.black,
-				null_ls.builtins.formatting.isort,
-				require("none-ls.diagnostics.eslint_d"),
-				null_ls.builtins.diagnostics.vale,
-			},
-		})
+    null_ls.setup({
+      sources = {
+        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.black,
+        null_ls.builtins.formatting.isort,
+        require("none-ls.diagnostics.eslint_d"),
+        null_ls.builtins.diagnostics.vale.with({
+          condition = function(utils)
+            return utils.root_has_file({ ".vale.ini", "_vale.ini", "vale.ini" })
+          end,
+        }),
+      },
+    })
 
-		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
-		vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostic"})
-	end,
+    vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+    vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+  end,
 }
